@@ -63,6 +63,11 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* Sometime sthe animation is abit shaky, this will fix it. By shaky
+  it moves up a little and looks like it shakes. But in my case it is
+  even ohkay without this prop, but included as a safe play */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -70,6 +75,18 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* animations */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+
+  /*
+  Will wait for 3 seconds and then the animation will start
+  animation-delay: 3s
+  Will happen 3 times as value is 3
+  animation-iteration-count: 3
+  */
 }
 
 .heading-primary-sub {
@@ -77,6 +94,60 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* can also be written as */
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  /* Between can be any % between 0 and 100 */
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* End */
+  100% {
+    opacity: 1;
+    /* because we wanrt it to be at its original position at the end of animation */
+    transform: translate(0);
+  }
+}
+
+.text-box {
+  position: absolute;
+  /* The below three properties will center the box hor and ver
+    if we also use top 50%. We are using 40% bacuse we have clip path
+    in the bototm border due to which it doesnt look centered if top 50%
+    is used */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes moveInRight {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  /* Between can be any % between 0 and 100 */
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* End */
+  100% {
+    opacity: 1;
+    /* because we wanrt it to be at its original position at the end of animation */
+    transform: translate(0);
+  }
 }
 
 .text-box {
