@@ -94,6 +94,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  margin-bottom: 60px;
 
   /* can also be written as */
   animation: moveInRight 1s ease-out;
@@ -128,6 +129,8 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  text-align: center;
 }
 
 @keyframes moveInRight {
@@ -150,13 +153,27 @@ body {
   }
 }
 
-.text-box {
-  position: absolute;
-  /* The below three properties will center the box hor and ver
-    if we also use top 50%. We are using 40% bacuse we have clip path
-    in the bototm border due to which it doesnt look centered if top 50%
-    is used */
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
