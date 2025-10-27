@@ -42,8 +42,50 @@ body {
   other values are bottom, center etc */
   background-position: top;
 
+  position: relative;
+
   /* starts from left top, then right top, then right bottom and last
   left bottom. Values are x y. the vh can also be pxls or percentage as well */
 
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
+
+.text-box {
+  position: absolute;
+  /* The below three properties will center the box hor and ver
+    if we also use top 50%. We are using 40% bacuse we have clip path
+    in the bototm border due to which it doesnt look centered if top 50%
+    is used */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
