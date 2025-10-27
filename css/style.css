@@ -6,3 +6,44 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* GENERAL SETTINGS FOR * AND BODY */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh;
+
+  /* Image will be below the gradient as it is the 2nd value */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.808),
+      rgba(40, 180, 133, 0.808)
+    ),
+    url("../img/hero.jpg");
+
+  /* THis will set the img so it is covered and fit inside the parent box */
+  background-size: cover;
+
+  /* Background-position: top; will always keep the top at top and crop other sides.
+  other values are bottom, center etc */
+  background-position: top;
+
+  /* starts from left top, then right top, then right bottom and last
+  left bottom. Values are x y. the vh can also be pxls or percentage as well */
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
