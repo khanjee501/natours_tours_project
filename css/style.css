@@ -59,14 +59,27 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
+}
+
+.header__text-box {
+  position: absolute;
+  /* The below three properties will center the box hor and ver
+    if we also use top 50%. We are using 40% bacuse we have clip path
+    in the bototm border due to which it doesnt look centered if top 50%
+    is used */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
 }
 
 .heading-primary {
@@ -79,7 +92,7 @@ body {
   backface-visibility: hidden;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -98,7 +111,7 @@ body {
   */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -127,19 +140,6 @@ body {
     /* because we wanrt it to be at its original position at the end of animation */
     transform: translate(0);
   }
-}
-
-.text-box {
-  position: absolute;
-  /* The below three properties will center the box hor and ver
-    if we also use top 50%. We are using 40% bacuse we have clip path
-    in the bototm border due to which it doesnt look centered if top 50%
-    is used */
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  text-align: center;
 }
 
 @keyframes moveInRight {
@@ -202,7 +202,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -220,7 +220,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -232,7 +232,7 @@ of the btn */
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* this will apply the start styles of animation before the animation starts */
   animation-fill-mode: backwards;
