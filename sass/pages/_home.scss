@@ -1,5 +1,8 @@
 .section-about {
   background-color: $color-grey-light-1;
+
+  //   The below two people will hide the white bg cuz of the clip-path
+  // property on hero sections bottom border
   padding: 25rem 0;
   margin-top: -20vh;
 }
