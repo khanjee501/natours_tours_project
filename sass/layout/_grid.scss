@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
 
   // center in the page
   margin: 0 auto;
@@ -16,7 +15,6 @@
   //   ^ starts with, $ ends with and * contains. So the below will select
   // classes that starts with col-
   [class^="col-"] {
-    background-color: orangered;
     float: left;
 
     // gutter between cols and not at the end of the last col
