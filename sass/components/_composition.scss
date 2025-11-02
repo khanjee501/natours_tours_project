@@ -1,0 +1,46 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.2s;
+    // outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      // Property like border, but add an extra fucntionlaity, if we
+      // set outline-offset property on parent then it will give
+      // between the element and border such as set on the parent above.
+      // We cannot acheive this with simple setting a border.
+      // outline: 1.5rem solid $color-primary;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+    }
+  }
+
+  // So if we hover on composition then the two photos which are not
+  // cureently hovered will decrease in size while the one that is
+  // hovered will increase.
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
