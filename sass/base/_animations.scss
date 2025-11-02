@@ -1,0 +1,54 @@
+@keyframes moveInLeft {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  /* Between can be any % between 0 and 100 */
+  80% {
+    transform: translateX(1rem);
+  }
+
+  /* End */
+  100% {
+    opacity: 1;
+    /* because we wanrt it to be at its original position at the end of animation */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  /* Between can be any % between 0 and 100 */
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  /* End */
+  100% {
+    opacity: 1;
+    /* because we wanrt it to be at its original position at the end of animation */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  /* End */
+  100% {
+    opacity: 1;
+    /* because we wanrt it to be at its original position at the end of animation */
+    transform: translate(0);
+  }
+}

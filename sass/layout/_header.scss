@@ -1,0 +1,48 @@
+.header {
+  height: 95vh;
+
+  /* Image will be below the gradient as it is the 2nd value */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.808),
+      rgba($color-primary-dark, 0.808)
+    ),
+    url("../img/hero.jpg");
+
+  /* THis will set the img so it is covered and fit inside the parent box */
+  background-size: cover;
+
+  /* Background-position: top; will always keep the top at top and crop other sides.
+  other values are bottom, center etc */
+  background-position: top;
+
+  position: relative;
+
+  /* starts from left top, then right top, then right bottom and last
+  left bottom. Values are x y. the vh can also be pxls or percentage as well */
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    /* The below three properties will center the box hor and ver
+    if we also use top 50%. We are using 40% bacuse we have clip path
+    in the bototm border due to which it doesnt look centered if top 50%
+    is used */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+  }
+}
