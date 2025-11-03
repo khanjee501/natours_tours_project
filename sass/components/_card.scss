@@ -1,0 +1,58 @@
+.card {
+  // The rotation will look like it comes to you
+  // in perspective
+  // The lesser the value the more drmamtic the effect. So try to use
+  // greater values
+  perspective: 150rem;
+  // to ake it work in mozill
+  -moz-perspective: 150rem;
+  position: relative;
+  //   to fix the zero height property of the card itself cuz all
+  // elements are floated, we will also give it 50rem fixed height.
+  height: 50rem;
+
+  &__side {
+    color: #fff;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 0.8s ease;
+    // We need to set it on this cuz this class is common to both
+    position: absolute;
+    top: 0;
+    left: 0;
+    // to fix width
+    width: 100%;
+    // to ide backside of the card
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    // Bacause the back is already at 180 at start
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  // On hover only front is rotated so it goes behind
+  // The back on hover is set to zero as it is already at
+  // 180deg and by setting it to 0 on hover it comes to front
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
