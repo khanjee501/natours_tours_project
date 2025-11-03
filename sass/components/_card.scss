@@ -1,0 +1,210 @@
+.card {
+  // The rotation will look like it comes to you
+  // in perspective
+  // The lesser the value the more drmamtic the effect. So try to use
+  // greater values
+  perspective: 150rem;
+  // to ake it work in mozill
+  -moz-perspective: 150rem;
+  position: relative;
+  //   to fix the zero height property of the card itself cuz all
+  // elements are floated, we will also give it 50rem fixed height.
+  height: 52rem;
+
+  &__side {
+    height: 52rem;
+    transition: all 0.8s ease;
+    // We need to set it on this cuz this class is common to both
+    position: absolute;
+    top: 0;
+    left: 0;
+    // to fix width
+    width: 100%;
+    // to ide backside of the card
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    overflow: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    // Bacause the back is already at 180 at start
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  // On hover only front is rotated so it goes behind
+  // The back on hover is set to zero as it is already at
+  // 180deg and by setting it to 0 on hover it comes to front
+  &:hover &__side--front {
+    // set to -180 so it rotates the other way
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    // The prefixes should be placed first like below
+    -webkit-background-blend-mode: color;
+    background-blend-mode: color;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      // We need to go up only one level as the code compilation
+      // directory is style.css and not this one.
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  //   Here cuz it is a new element in BEM and not a
+  // child of heading
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    // the below property will deal the text as two separate entities
+    // and hence will fix the padding on on both the sides of the
+    // two lines
+    // So if a text breaks to multi lines then the padiing will only be
+    // applied at the start of the text and end of text. This applies
+    // padding on left and right at all the breaks and treats each line as
+    // a separate entitiy
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    li {
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 1rem;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-grey-light-2;
+      }
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    // center it
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // to fix the width of the button
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 300;
+  }
+}
